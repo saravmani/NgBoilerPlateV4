@@ -12,20 +12,19 @@
             
             <!-- Navigation Items -->
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" [routerLink]="['/dashboard']">Home</a>
                     </li>
                     
                     <!-- Dropdown Menu 1 -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" 
                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Products
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                            <li><a class="dropdown-item" href="#">Category 1</a></li>
-                            <li><a class="dropdown-item" href="#">Category 2</a></li>
+                            Portfolio
+                        </a>                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                            <li><a class="dropdown-item" [routerLink]="['/stocks']">Stocks</a></li>
+                            <li><a class="dropdown-item" [routerLink]="['/mutual-funds']">Mutual Funds</a></li>
+                            <li><a class="dropdown-item" href="#">Others</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Special Offers</a></li>
                         </ul>
@@ -66,9 +65,8 @@
                 <i class="fas fa-chevron-left"></i>
             </button>
         
-            <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">
+            <ul class="nav flex-column">                <li class="nav-item">
+                    <a class="nav-link active" [routerLink]="['/dashboard']">
                         <i class="fas fa-home me-2"></i>
                         <span>Dashboard</span>
                     </a>
@@ -147,61 +145,10 @@
             </ul>
         </div>
     </nav>
-    
-    <!-- Main Content Area -->
+      <!-- Main Content Area -->
     <main class="theme-main">
         <div class="container-fluid px-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Dashboard</h1>
-            </div>
-            
-            <!-- Content goes here -->
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card mb-4 theme-card">
-                        <div class="card-header">
-                            Featured Content
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Special title treatment</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#" class="btn theme-btn">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-6">
-                    <div class="card mb-4 theme-card">
-                        <div class="card-header">
-                            Information
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Important Information</h5>
-                            <p class="card-text">This is a responsive Bootstrap template with a top navbar and left sidebar.</p>
-                            <p class="card-text">It works well on both mobile and desktop devices.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-12">
-                    <div class="card mb-4 theme-card">
-                        <div class="card-header">
-                            Additional Content
-                        </div>
-                        <div class="card-body">
-                            <p class="card-text">This template includes:</p>
-                            <ul>
-                                <li>Responsive top navigation bar with dropdown menus</li>
-                                <li>Left sidebar with collapsible menu items</li>
-                                <li>Main content area</li>
-                                <li>Bootstrap card components</li>
-                                <li>Mobile-friendly design</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Router Outlet for Dynamic Content -->
+            <router-outlet></router-outlet>
         </div>
     </main>
