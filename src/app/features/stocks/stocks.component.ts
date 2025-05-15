@@ -14,14 +14,13 @@ import './ag-grid-styles.css';
   templateUrl: './stocks.component.html',
   styleUrl: './stocks.component.css'
 })
-export class StocksComponent implements OnInit {
-  // Column Definitions
+export class StocksComponent implements OnInit {  // Column Definitions
   columnDefs: ColDef[] = [
-    { field: 'symbol', sortable: true, filter: true },
-    { field: 'name', sortable: true, filter: true },
-    { field: 'price', sortable: true, filter: true },
-    { field: 'change', sortable: true, filter: true },
-    { field: 'changePercent', headerName: 'Change %', sortable: true, filter: true }
+    { field: 'symbol', sortable: true, filter: true, width: 100 },
+    { field: 'name', sortable: true, filter: true, flex: 2 },
+    { field: 'price', sortable: true, filter: true, width: 120 },
+    { field: 'change', sortable: true, filter: true, width: 120 },
+    { field: 'changePercent', headerName: 'Change %', sortable: true, filter: true, width: 120 }
   ];
 
   // Row Data
@@ -34,16 +33,16 @@ export class StocksComponent implements OnInit {
     { symbol: 'META', name: 'Meta Platforms Inc.', price: 475.30, change: 7.65, changePercent: 1.6 },
     { symbol: 'NVDA', name: 'NVIDIA Corporation', price: 924.15, change: 15.75, changePercent: 1.7 }
   ];
-
   // Default Column Configuration
   defaultColDef = {
     flex: 1,
-    minWidth: 100
+    minWidth: 80,
+    resizable: true
   };
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onGridReady(params: GridReadyEvent) {
     // Grid is ready
