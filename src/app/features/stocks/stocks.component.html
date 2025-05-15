@@ -1,47 +1,63 @@
-<div class="container mt-4">
+<div class="container-fluid mt-4">
     <div class="card theme-card">
-        <div class="card-header">
-            <h2>Stocks Portfolio</h2>
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">My Stocks</h2>
         </div>
         <div class="card-body">
-            <div class="row">
-                <div class="col-md-12 mb-4">
-                    <h4>My Stocks</h4>
-                    <p>View and manage your stock investments here.</p>
+            <div class="row mb-4">
+                <div class="col-12">
+                    <p class="lead">View and manage your stock investments here.</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6">
-                    <div class="card mb-3">
-                        <div class="card-header">Featured Stocks</div>
+                <!-- Left side: AG Grid -->                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5 class="fw-bold mb-0">Stock Holdings</h5>
+                        </div>
+                        <div class="card-body p-0">
+                            <!-- AG Grid Component -->
+                            <ag-grid-angular
+                                style="height: 500px; width: 100%;"
+                                class="ag-theme-alpine"
+                                [rowData]="rowData"
+                                [columnDefs]="columnDefs"
+                                [defaultColDef]="defaultColDef"
+                                (gridReady)="onGridReady($event)"
+                                [pagination]="true"
+                                [paginationPageSize]="5"
+                            ></ag-grid-angular>
+                        </div>
+                    </div>                </div>
+                
+                <!-- Right side: Information -->
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5 class="fw-bold mb-0">Market Insights</h5>
+                        </div>
                         <div class="card-body">
-                            <ul class="list-group">
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    AAPL
-                                    <span class="badge bg-success">+2.3%</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    MSFT
-                                    <span class="badge bg-success">+1.7%</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    GOOGL
-                                    <span class="badge bg-danger">-0.5%</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    AMZN
-                                    <span class="badge bg-success">+1.2%</span>
-                                </li>
-                            </ul>
+                            <h5 class="card-title">Stock Market Overview</h5>
+                            <p>The stock market is showing positive trends today with technology stocks leading the gains.</p>
+                            <p>Key indicators suggest a bullish market in the coming weeks, with increased investor confidence in tech and healthcare sectors.</p>
+                            <p>Consider diversifying your portfolio with a mix of growth stocks and dividend-paying assets to optimize returns.</p>
+                            <div class="mt-4">
+                                <h5>Actions</h5>
+                                <button class="btn theme-btn me-2">View Analysis</button>
+                                <button class="btn btn-outline-secondary">Buy/Sell</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card mb-3">
-                        <div class="card-header">Stock Market Overview</div>
+                    
+                    <!-- Additional Card -->
+                    <div class="card mt-3">
+                        <div class="card-header bg-light">
+                            <h5 class="fw-bold mb-0">Performance Summary</h5>
+                        </div>
                         <div class="card-body">
-                            <p>Keep track of market trends and your investment performance.</p>
-                            <button class="btn theme-btn">View Market Analysis</button>
+                            <p class="mb-2"><strong>Total Value:</strong> $45,620.35</p>
+                            <p class="mb-2"><strong>Today's Change:</strong> <span class="text-success">+$876.12 (+1.96%)</span></p>
+                            <p class="mb-2"><strong>YTD Return:</strong> <span class="text-success">+12.3%</span></p>
                         </div>
                     </div>
                 </div>

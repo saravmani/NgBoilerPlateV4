@@ -1,0 +1,65 @@
+/* Custom styles for stocks component */
+.theme-card {
+  margin-bottom: 2rem;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  border: 1px solid #dde2eb;
+  margin-bottom: 1.5rem;
+}
+
+.card-header {
+  background-color: #f5f7fa;
+  font-weight: 600;
+  color: #333;
+  border-bottom: 1px solid #dde2eb;
+  padding: 1rem;
+}
+
+/* Style for positive change */
+.text-success {
+  font-weight: 500;
+}
+
+/* Style for buttons */
+.theme-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.theme-btn:hover {
+  background-color: #0069d9;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 105, 217, 0.3);
+}
+
+/* Add some padding to the stock grid container */
+ag-grid-angular {
+  display: block;
+  padding: 0.5rem 0;
+}
+
+/* Make headers more prominent */
+h2 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+/* AG-Grid custom styles override */
+:host ::ng-deep .ag-header-cell {
+  font-weight: 600;
+  color: #333;
+}

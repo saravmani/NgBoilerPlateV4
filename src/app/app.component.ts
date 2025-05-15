@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
-
+import { ModuleRegistry, AllCommunityModule } from 'ag-grid-community';
+ModuleRegistry.registerModules([ AllCommunityModule ]);
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -11,3 +12,7 @@ import { RouterOutlet, RouterLink } from '@angular/router';
 export class AppComponent {
   title = 'NgBoilerPlateV4';
 }
+
+
+    
+    

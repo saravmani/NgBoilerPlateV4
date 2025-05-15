@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+
+/* Custom AG Grid Styling */
+.ag-theme-alpine {
+  --ag-header-background-color: #f5f5f5;
+  --ag-header-foreground-color: #333;
+  --ag-row-hover-color: #f0f8ff;
+  --ag-header-column-separator-color: #ddd;
+  --ag-border-color: #ddd;
+}
+
+.ag-theme-alpine .ag-header-cell {
+  font-weight: bold;
+}
+
+.ag-theme-alpine .ag-row-even {
+  background-color: #fafafa;
+}
