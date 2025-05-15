@@ -1,0 +1,36 @@
+/* Styling for Mutual Funds Component */
+
+/* Card styling */
+.theme-card {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+}
+
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 16px 20px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* Right panel styling */
+.list-group-item {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    padding: 12px 16px;
+}
+
+.badge {
+    font-size: 85%;
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .col-md-3 {
+        margin-top: 20px;
+    }
+}

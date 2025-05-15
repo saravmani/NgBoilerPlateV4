@@ -7,12 +7,11 @@
 
             <div class="row">
                 <!-- Left side: AG Grid -->
-                <div class="col-md-9">
-
-                    <!-- AG Grid Component -->
-                    <ag-grid-angular style="height: 500px; width: 100%;" class="ag-theme-alpine" [rowData]="rowData"
+                <div class="col-md-9">                    <!-- AG Grid Component with Infinite Scrolling -->
+                    <ag-grid-angular style="height: 500px; width: 100%;" class="ag-theme-alpine-dark" [rowData]="rowData"
                         [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" (gridReady)="onGridReady($event)"
-                        [pagination]="true" [paginationPageSize]="5"></ag-grid-angular>
+                        [rowModelType]="'infinite'" [cacheBlockSize]="10" [infiniteInitialRowCount]="20"
+                        [maxBlocksInCache]="10" [datasource]="dataSource"></ag-grid-angular>
 
 
                 </div>

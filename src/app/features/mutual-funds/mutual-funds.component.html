@@ -1,47 +1,47 @@
-<div class="container mt-4">
+<div class="container-fluid mt-12">
     <div class="card theme-card">
-        <div class="card-header">
-            <h2>Mutual Funds Portfolio</h2>
+        <div class="card-header ">
+            <h4 class="mb-0">My Mutual Funds</h4>
         </div>
         <div class="card-body">
+
             <div class="row">
-                <div class="col-md-12 mb-4">
-                    <h4>My Mutual Funds</h4>
-                    <p>View and manage your mutual fund investments here.</p>
+                <!-- Left side: AG Grid -->
+                <div class="col-md-9">
+                    <!-- AG Grid Component with Pagination -->
+                    <ag-grid-angular style="height: 500px; width: 100%;" class="ag-theme-alpine-dark" [rowData]="rowData"
+                        [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" (gridReady)="onGridReady($event)"
+                        [pagination]="false" [paginationPageSize]="10"></ag-grid-angular>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card mb-3">
-                        <div class="card-header">Top Performing Funds</div>
-                        <div class="card-body">
-                            <ul class="list-group">
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    Vanguard 500 Index Fund
-                                    <span class="badge bg-success">+3.2%</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    Fidelity Contrafund
-                                    <span class="badge bg-success">+2.8%</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    T. Rowe Price Blue Chip Growth
-                                    <span class="badge bg-success">+2.1%</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    American Funds Growth Fund
-                                    <span class="badge bg-danger">-0.3%</span>
-                                </li>
-                            </ul>
+
+                <!-- Right side: Information -->
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5 class="fw-bold mb-0">Fund Insights</h5>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card mb-3">
-                        <div class="card-header">Fund Categories</div>
                         <div class="card-body">
-                            <p>Explore different mutual fund categories to diversify your portfolio.</p>
-                            <button class="btn theme-btn">View Fund Categories</button>
+                            <h5 class="card-title">Mutual Fund Overview</h5>
+                            <p>Mutual funds are showing mixed performance this quarter with bond funds under pressure due to rising interest rates.</p>
+                            <p>Index funds continue to offer low expense ratios and consistent returns aligned with broader market performance.</p>
+                            <p>Consider diversifying your portfolio across different fund categories to balance risk and potential returns.</p>
+                            <div class="mt-4">
+                                <h6>Top Fund Categories</h6>
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Growth Funds
+                                        <span class="badge bg-primary rounded-pill">+8.3%</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Mid-Cap Funds
+                                        <span class="badge bg-primary rounded-pill">+6.2%</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        Large-Cap Funds
+                                        <span class="badge bg-primary rounded-pill">+5.2%</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
