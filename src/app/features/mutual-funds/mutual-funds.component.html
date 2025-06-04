@@ -1,9 +1,31 @@
 <div class="container-fluid mt-12">
     <div class="card theme-card">
-        <div class="card-header ">
+        <div class="card-header d-flex justify-content-between align-items-center">
             <h4 class="mb-0">My Mutual Funds</h4>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-outline-primary btn-sm" (click)="loadMockData()">
+                    Load Mock Data
+                </button>
+                <button type="button" class="btn btn-outline-success btn-sm" (click)="loadApiData()">
+                    Load API Data
+                </button>
+                <button type="button" class="btn btn-outline-info btn-sm" (click)="loadTransformedData()">
+                    Load Transformed Data
+                </button>
+            </div>
         </div>
         <div class="card-body">
+            <!-- Loading and Error Messages -->
+            <div *ngIf="loading" class="alert alert-info" role="alert">
+                <div class="d-flex align-items-center">
+                    <div class="spinner-border spinner-border-sm me-2" role="status"></div>
+                    Loading data from API...
+                </div>
+            </div>
+            
+            <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+                {{ errorMessage }}
+            </div>
 
             <div class="row">
                 <!-- Left side: AG Grid -->
@@ -16,6 +38,26 @@
 
                 <!-- Right side: Information -->
                 <div class="col-md-3">
+                    <!-- API Data Display -->
+                    <div class="card mb-3" *ngIf="apiPosts.length > 0">
+                        <div class="card-header bg-secondary text-white">
+                            <h6 class="fw-bold mb-0">API Data Sample</h6>
+                        </div>
+                        <div class="card-body p-2">
+                            <div *ngFor="let post of apiPosts; let i = index" class="mb-2">
+                                <div class="card card-sm">
+                                    <div class="card-body p-2">
+                                        <h6 class="card-title fs-6">Post {{ post.id }}</h6>
+                                        <p class="card-text small">{{ post.title | slice:0:50 }}...</p>
+                                        <button class="btn btn-outline-primary btn-sm" (click)="loadSpecificPost(post.id)">
+                                            View Details
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="card">
                         <div class="card-header bg-light">
                             <h5 class="fw-bold mb-0">Fund Insights</h5>

@@ -34,3 +34,30 @@
         margin-top: 20px;
     }
 }
+
+/* HTTP functionality styles */
+.btn-group .btn {
+    font-size: 0.875rem;
+}
+
+.card-sm {
+    font-size: 0.875rem;
+}
+
+.card-sm .card-body {
+    padding: 0.5rem;
+}
+
+.spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+}
+
+.alert {
+    border-radius: 6px;
+    margin-bottom: 1rem;
+}
+
+.bg-secondary {
+    background-color: #6c757d !important;
+}

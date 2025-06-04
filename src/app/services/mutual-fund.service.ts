@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 import { ColDef } from 'ag-grid-community';
 
 // Mutual Fund data interface
@@ -13,12 +15,21 @@ export interface MutualFundData {
   riskRating: string;
 }
 
+// Interface for dummy API response
+export interface ApiPost {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class MutualFundService {
+  private apiUrl = 'https://jsonplaceholder.typicode.com/posts'; // Dummy API for testing
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   /**
    * Get mutual fund data for the grid
@@ -41,6 +52,47 @@ export class MutualFundService {
     ];
     
     return of(mutualFundData);
+  }
+
+  /**
+   * Basic HTTP GET call to fetch posts from dummy API
+   */
+  getApiPosts(): Observable<ApiPost[]> {
+    return this.http.get<ApiPost[]>(this.apiUrl).pipe(
+      catchError(error => {
+        console.error('Error fetching API posts:', error);
+        return of([]); // Return empty array on error
+      })
+    );
+  }
+
+  /**
+   * Get a specific post by ID
+   */
+  getApiPostById(id: number): Observable<ApiPost | null> {
+    return this.http.get<ApiPost>(`${this.apiUrl}/${id}`).pipe(
+      catchError(error => {
+        console.error('Error fetching API post by ID:', error);
+        return of(null); // Return null on error
+      })
+    );
+  }
+
+  /**
+   * Transform API posts into mock mutual fund data for demonstration
+   */
+  getTransformedMutualFunds(): Observable<MutualFundData[]> {
+    return this.getApiPosts().pipe(
+      map(posts => posts.slice(0, 5).map((post, index) => ({
+        symbol: `API${post.id.toString().padStart(3, '0')}`,
+        name: post.title.substring(0, 30) + '... Fund',
+        nav: Math.round((Math.random() * 200 + 50) * 100) / 100,
+        category: ['Large Cap', 'Mid Cap', 'Small Cap', 'Bond', 'International'][index % 5],
+        ytdReturn: Math.round((Math.random() * 20 - 5) * 100) / 100,
+        expenseRatio: Math.round(Math.random() * 100) / 100,
+        riskRating: ['Low', 'Moderate', 'High'][Math.floor(Math.random() * 3)]
+      })))
+    );
   }
 
   /**
