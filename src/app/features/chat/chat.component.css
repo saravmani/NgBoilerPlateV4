@@ -75,8 +75,8 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 350px;
-  height: 500px;
+  width: 450px;
+  height: 650px;
   background: white;
   border-radius: 15px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
@@ -367,6 +367,117 @@
   background: #6c757d;
   cursor: not-allowed;
   opacity: 0.6;
+}
+
+/* Default Options Styles */
+.default-options {
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(0, 123, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 123, 255, 0.1);
+}
+
+.options-header {
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.options-header small {
+  color: #6c757d;
+  font-weight: 500;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.option-btn {
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 8px 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  min-height: 50px;
+  justify-content: center;
+}
+
+.option-btn:hover {
+  border-color: #007bff;
+  background: #f0f8ff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+}
+
+.option-btn:active {
+  transform: translateY(0);
+}
+
+.option-btn i {
+  font-size: 14px;
+  color: #007bff;
+  margin-bottom: 2px;
+}
+
+.option-btn span {
+  font-weight: 500;
+  color: #2c3e50;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+}
+
+/* Mobile responsiveness for options */
+@media (max-width: 768px) {
+  .options-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  
+  .option-btn {
+    padding: 10px 8px;
+    font-size: 11px;
+    min-height: 55px;
+  }
+  
+  .option-btn i {
+    font-size: 16px;
+  }
+}
+
+/* Animation for options appearing */
+.option-btn {
+  animation: fadeInScale 0.3s ease-out forwards;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.option-btn:nth-child(1) { animation-delay: 0.05s; }
+.option-btn:nth-child(2) { animation-delay: 0.1s; }
+.option-btn:nth-child(3) { animation-delay: 0.15s; }
+.option-btn:nth-child(4) { animation-delay: 0.2s; }
+.option-btn:nth-child(5) { animation-delay: 0.25s; }
+.option-btn:nth-child(6) { animation-delay: 0.3s; }
+
+@keyframes fadeInScale {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* Animations */

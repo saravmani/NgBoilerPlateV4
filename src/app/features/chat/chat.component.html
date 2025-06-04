@@ -35,7 +35,6 @@
       </button>
     </div>
   </div>
-
   <!-- Chat Messages -->
   <div class="chat-messages" #messagesContainer>
     <div class="message" 
@@ -69,6 +68,23 @@
             <span></span>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Default Options -->
+    <div class="default-options" *ngIf="showDefaultOptions && !isTyping">
+      <div class="options-header" *ngIf="messages.length > 1">
+        <small>Quick options:</small>
+      </div>
+      <div class="options-grid">
+        <button 
+          *ngFor="let option of defaultOptions" 
+          class="option-btn"
+          (click)="sendDefaultOption(option)"
+          [title]="option.text">
+          <i [class]="option.icon"></i>
+          <span>{{ option.text }}</span>
+        </button>
       </div>
     </div>
   </div>
